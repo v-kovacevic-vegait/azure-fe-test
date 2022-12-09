@@ -22,7 +22,7 @@ stages:
           - script: npm install
             displayName: Npm install
 
-          - script: npm run build -- --prod
+          - script: REACT_APP_API_URL = "$(ApiUrl)" npm run build -- --prod 
             displayName: Npm run build
 
           - publish: build
