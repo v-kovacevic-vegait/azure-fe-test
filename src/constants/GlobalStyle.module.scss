@@ -1,0 +1,94 @@
+@import "./Colors.scss";
+@import "./Styles.scss";
+
+.page-wrapper {
+  background-color: $background;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.content-wrapper {
+  width: 100%;
+  padding: 88px 16px 0;
+  margin: 0 auto 20px;
+}
+
+.content {
+  max-width: 1444px;
+  min-height: calc(100vh - 108px);
+  margin: 0 auto;
+  padding: 16px;
+  background-color: rgba(53, 96, 255, 0.02);
+  border-radius: 0 0 6px 6px;
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.add-wrapper {
+  position: relative;
+  margin: -16px -16px 40px;
+  padding: 16px 16px 20px;
+  width: calc(100% + 32px);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+
+}
+
+.add-text {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.add-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 25px 10px 18px;
+  font-size: 18px;
+  line-height: 19px;
+  font-weight: 600;
+  text-decoration: none;
+  color: $white;
+  background-color: $green;
+  border: 0;
+  border-radius: $borderRadius;
+  transition: background-color 0.25s ease-in-out;
+
+  span {
+    font-size: 22px;
+    margin-top: -4px;
+    margin-right: 5px;
+  }
+
+  &:hover {
+    background-color: $greenHover;
+  }
+}
+
+.modal-footer-ctas {
+  display: flex;
+  padding-top: 16px;
+
+  & > button:not(:last-of-type) {
+    margin-right: 10px;
+  }
+}
+
+.modal-content-paragraph {
+	margin-bottom: 20px;
+    font-family: "Dosis";
+    font-size: 18px;
+	line-height: 20px;
+    font-weight: 600;
+}

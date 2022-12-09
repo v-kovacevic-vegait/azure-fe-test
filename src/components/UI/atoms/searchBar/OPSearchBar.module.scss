@@ -1,0 +1,49 @@
+@import "../../../../constants/Colors.scss";
+
+.search-bar-wrapper {
+  width: 100%;
+  max-width: 260px;
+  padding: 5px 15px;
+
+  background: $white;
+  border: 1px solid $bgLightGrey;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+
+  svg {
+    min-width: 30px;
+  }
+}
+
+.search-bar-wrapper:focus-within {
+  border: 1px solid $orange;
+}
+
+.search-bar {
+  box-sizing: border-box;
+
+  height: 34px;
+  width: 100%;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-family: "Dosis";
+  font-weight: 600;
+  line-height: 22px;
+
+  color: $black;
+}
+
+.search-bar::placeholder {
+  color: $grey;
+  font-weight: 600;
+}
+
+.search-bar:focus {
+  outline: none;
+}

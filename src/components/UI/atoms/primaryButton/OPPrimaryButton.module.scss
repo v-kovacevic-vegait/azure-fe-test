@@ -1,0 +1,23 @@
+@import "../../../../constants/Colors.scss";
+
+.login-btn {
+  width: 100%;
+  min-width: 100px;
+  height: 40px;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  background-color: $red;
+  border: 2px solid $red;
+  border-radius: 7px;
+  font-family: "Dosis";
+  font-size: 14px;
+  font-weight: 600;
+  color: $white;
+  transition-property: opacity;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
