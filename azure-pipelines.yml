@@ -44,7 +44,7 @@ stages:
     displayName: Deploy to production
     jobs:
       - deployment: DeployWeb
-        environment: PRD
+        environment: PROD
         strategy:
           runOnce:
             deploy:
