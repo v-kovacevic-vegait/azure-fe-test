@@ -32,13 +32,21 @@ stages:
   - stage: deploy_dev
     displayName: Deploy to development
     jobs:
-      - job:
-        steps:
-          - script: echo Hello, world!
+      - deployment: DeployWeb
+        environment: DEV
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - script: echo Hello, development world!
 
-  - stage: deploy_prod
+  - stage: deploy_prd
     displayName: Deploy to production
     jobs:
-      - job:
-        steps:
-          - script: echo Hello, world!
+      - deployment: DeployWeb
+        environment: PRD
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - script: echo Hello, production world!
