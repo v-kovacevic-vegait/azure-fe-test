@@ -15,12 +15,19 @@ stages:
       - job:
         steps:
           - task: NodeTool@0
+            displayName: Install node
             inputs:
               versionSpec: '16.x'
+
           - script: npm install
+            displayName: Npm install
+
           - script: npm run build -- --prod
-          - publish: dist
-            artifact: dist
+            displayName: Npm run build
+
+          - publish: build
+            artifact: build
+            displayName: Publish build
 
   - stage: deploy_dev
     displayName: Deploy to development
