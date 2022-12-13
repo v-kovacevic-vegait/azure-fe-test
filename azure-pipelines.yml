@@ -41,9 +41,9 @@ stages:
 
           - bash: echo $(Build.SourceBranch)
 
-          - ${{ if eq($(Build.SourceBranch), 'refs/heads/master') }}:
-            - script: npm run build:production -- --prod 
-              displayName: Npm run build
+          - script: npm run build:production -- --prod 
+            displayName: Npm run build
+            condition: contains(variables['Build.SourceBranch'], 'refs/heads/master')
 
           - publish: build
             artifact: build
