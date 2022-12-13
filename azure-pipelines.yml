@@ -23,6 +23,7 @@ stages:
             displayName: Npm install
 
           - task: Bash@3
+            displayName: Configure env files
             inputs:
               targetType: 'inline'
               script: |
@@ -37,6 +38,8 @@ stages:
                 #!/bin/bash  
                 valuedev=`cat .env.development`  
                 echo "$valuedev"  
+
+          - bash: echo $(Build.SourceBranch)
 
           - script: npm run build:production -- --prod 
             displayName: Npm run build
