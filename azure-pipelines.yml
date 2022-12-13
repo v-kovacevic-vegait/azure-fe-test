@@ -55,7 +55,7 @@ stages:
     displayName: Deploy to development
     condition: contains(variables['Build.SourceBranch'], 'refs/heads/dev')
     jobs:
-      - deployment: DeployWeb
+      - deployment: DeployDev
         environment: DEV
         strategy:
           runOnce:
@@ -67,7 +67,7 @@ stages:
     displayName: Deploy to production
     condition: contains(variables['Build.SourceBranch'], 'refs/heads/master')
     jobs:
-      - deployment: DeployWeb
+      - deployment: DeployProd
         environment: PROD
         strategy:
           runOnce:
