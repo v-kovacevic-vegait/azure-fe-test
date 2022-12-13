@@ -26,6 +26,13 @@ stages:
             inputs:
               targetType: 'inline'
               script: 'ls'
+              
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: |
+                > .env.production
+                echo "REACT_APP_API_URL = 'http://ec2-3-85-57-118.compute-1.amazonaws.com:8081/api/'" >> .env.production
 
           - script: npm run build:production -- --prod 
             displayName: Npm run build
