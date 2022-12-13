@@ -22,7 +22,7 @@ stages:
           - script: npm install
             displayName: Npm install
 
-          - script: npm run build -- --prod 
+          - script: npm run build:production -- --prod 
             displayName: Npm run build
 
           - publish: build
