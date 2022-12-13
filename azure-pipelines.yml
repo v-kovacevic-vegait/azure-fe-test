@@ -42,8 +42,12 @@ stages:
           - bash: echo $(Build.SourceBranch)
 
           - script: npm run build:production -- --prod 
-            displayName: Npm run build
+            displayName: Npm run build prod
             condition: contains(variables['Build.SourceBranch'], 'refs/heads/master')
+          
+          - script: npm run build:development -- --prod 
+            displayName: Npm run build dev
+            condition: contains(variables['Build.SourceBranch'], 'refs/heads/dev')
 
           - publish: build
             artifact: build
