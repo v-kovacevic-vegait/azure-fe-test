@@ -39,8 +39,6 @@ stages:
                 valuedev=`cat .env.development`  
                 echo "$valuedev"  
 
-          - bash: echo $(Build.SourceBranch)
-
           - script: npm run build:production -- --prod 
             displayName: Npm run build prod
             condition: contains(variables['Build.SourceBranch'], 'refs/heads/master')
@@ -55,6 +53,7 @@ stages:
 
   - stage: deploy_dev
     displayName: Deploy to development
+    condition: contains(variables['Build.SourceBranch'], 'refs/heads/dev')
     jobs:
       - deployment: DeployWeb
         environment: DEV
@@ -64,8 +63,9 @@ stages:
               steps:
                 - script: echo Hello, development world!
 
-  - stage: deploy_prd
+  - stage: deploy_prod
     displayName: Deploy to production
+    condition: contains(variables['Build.SourceBranch'], 'refs/heads/master')
     jobs:
       - deployment: DeployWeb
         environment: PROD
