@@ -95,5 +95,4 @@ stages:
                       az storage blob upload-batch \
                       --destination \$web \
                       --account-name "azuremealforfamilytestfe" \
-                      --account-key "$(StorageAccountKey)" \
                       --source "$(System.ArtifactsDirectory)"
