@@ -92,6 +92,15 @@ stages:
                     azureSubscription: 'name'
                     scriptLocation: 'inlineScript'
                     inlineScript: |
+                      az storage blob delete-batch \
+                      --source \$web \
+                      --account-name "azuremealforfamilytestfe"
+
+                - task: AzureCLI@1
+                  inputs:
+                    azureSubscription: 'name'
+                    scriptLocation: 'inlineScript'
+                    inlineScript: |
                       az storage blob upload-batch \
                       --destination \$web \
                       --account-name "azuremealforfamilytestfe" \
