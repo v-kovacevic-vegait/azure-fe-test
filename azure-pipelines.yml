@@ -78,7 +78,6 @@ stages:
               steps:
                 
                 - task: DownloadPipelineArtifact@2
-                  displayName: Download artifact
                   inputs:
                     buildType: 'current'
                     artifactName: 'build'
