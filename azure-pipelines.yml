@@ -82,7 +82,7 @@ stages:
                   inputs:
                     buildType: 'current'
                     project: '474863c3-dee8-420d-b794-4679642f5427'
-                    pipeline: '2'
+                    artifactName: 'build'
                     buildVersionToDownload: 'latest'
                     downloadType: 'single'
                     downloadPath: '$(System.ArtifactsDirectory)'
