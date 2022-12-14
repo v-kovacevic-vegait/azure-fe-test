@@ -96,3 +96,10 @@ stages:
                     storage: 'azuremealforfamilytestfe'
                     ContainerName: '$web'
                     CleanTargetBeforeCopy: true
+                    
+                - task: AzureCLI@2
+                  inputs:
+                    azureSubscription: 'name'
+                    scriptType: 'bash'
+                    scriptLocation: 'inlineScript'
+                    inlineScript: 'az storage blob upload-batch  --account-name "azuremealforfamilytestfe" -s "$(System.ArtifactsDirectory"'
