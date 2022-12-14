@@ -50,12 +50,9 @@ stages:
             displayName: Npm run build dev
             condition: contains(variables['Build.SourceBranch'], 'refs/heads/dev')
 
-          - task: PublishBuildArtifacts@1
-            inputs:
-              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-              ArtifactName: 'build'
-              publishLocation: 'Container'
-            displayName: 'Publish build artifact'
+          - publish: build
+            artifact: build
+            displayName: Publish build
 
   - stage: deploy_dev
     displayName: Deploy to development
@@ -83,14 +80,13 @@ stages:
                 
                 - script: echo Hello, production world!
 
-                - task: DownloadBuildArtifacts@0
+
+                    
+                - task: DownloadPipelineArtifact@2
                   inputs:
                     buildType: 'current'
-                    project: '474863c3-dee8-420d-b794-4679642f5427'
                     artifactName: 'build'
-                    buildVersionToDownload: 'latest'
-                    downloadType: 'single'
-                    downloadPath: '$(System.ArtifactsDirectory)'
+                    targetPath: '$(System.ArtifactsDirectory)'
 
                 - script: |
                     cd $(System.ArtifactsDirectory)
