@@ -87,9 +87,12 @@ stages:
                     cd $(System.ArtifactsDirectory)
                     ls
 
-                - task: AzureCLI@2
+                - task: AzureCLI@1
                   inputs:
                     azureSubscription: 'name'
-                    scriptType: 'pscore'
                     scriptLocation: 'inlineScript'
-                    inlineScript: 'az storage blob upload-batch --destination \$web --account-name "azuremealforfamilytestfe" --account-key "$(StorageAccountKey)" --source "$(System.ArtifactsDirectory)"'
+                    inlineScript: 'az storage blob upload-batch \
+                      --destination \$web \
+                      --account-name "azuremealforfamilytestfe" \
+                      --account-key "$(StorageAccountKey)" \
+                      --source "$(System.ArtifactsDirectory)"'
