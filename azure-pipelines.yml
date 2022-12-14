@@ -89,4 +89,6 @@ stages:
                     downloadType: 'single'
                     downloadPath: '$(System.ArtifactsDirectory)'
 
-                - script: ls
+                - script: |
+                    cd $(System.ArtifactsDirectory)
+                    ls
