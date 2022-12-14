@@ -87,10 +87,10 @@ stages:
                 - script: |
                     cd $(System.ArtifactsDirectory)
                     ls
-                    
+
                 - task: AzureCLI@2
                   inputs:
                     azureSubscription: 'name'
-                    scriptType: 'bash'
+                    scriptType: 'ps'
                     scriptLocation: 'inlineScript'
                     inlineScript: 'az storage blob upload-batch  --account-name "azuremealforfamilytestfe" -s "$(System.ArtifactsDirectory"'
