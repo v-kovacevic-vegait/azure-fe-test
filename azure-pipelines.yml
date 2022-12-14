@@ -93,4 +93,4 @@ stages:
                     azureSubscription: 'name'
                     scriptType: 'pscore'
                     scriptLocation: 'inlineScript'
-                    inlineScript: 'az storage blob upload-batch --destination $web --account-name "azuremealforfamilytestfe" --source "$(System.ArtifactsDirectory)"'
+                    inlineScript: 'az storage blob upload-batch --destination "$web" --account-name "azuremealforfamilytestfe" --source "$(System.ArtifactsDirectory)"'
