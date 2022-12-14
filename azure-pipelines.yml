@@ -87,15 +87,6 @@ stages:
                 - script: |
                     cd $(System.ArtifactsDirectory)
                     ls
-
-                - task: AzureFileCopy@5
-                  inputs:
-                    SourcePath: '$(System.ArtifactsDirectory)'
-                    azureSubscription: 'name'
-                    Destination: 'AzureBlob'
-                    storage: 'azuremealforfamilytestfe'
-                    ContainerName: '$web'
-                    CleanTargetBeforeCopy: true
                     
                 - task: AzureCLI@2
                   inputs:
