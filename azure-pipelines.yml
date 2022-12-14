@@ -77,7 +77,12 @@ stages:
             deploy:
               steps:
                 
-
+                - task: DownloadPipelineArtifact@2
+                  displayName: Download pipeline artifact
+                  inputs:
+                    buildType: 'current'
+                    artifactName: 'build'
+                    targetPath: '$(System.ArtifactsDirectory)'
 
                 - script: |
                     cd $(System.ArtifactsDirectory)
