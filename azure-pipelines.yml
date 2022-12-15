@@ -92,7 +92,7 @@ stages:
                 - task: AzureCLI@1
                   displayName: Delete files
                   inputs:
-                    azureSubscription: 'name'
+                    azureSubscription: '$(ServiceConnection)'
                     scriptLocation: 'inlineScript'
                     inlineScript: |
                       az storage blob delete-batch \
@@ -102,7 +102,7 @@ stages:
                 - task: AzureCLI@1
                   displayName: Upload new files
                   inputs:
-                    azureSubscription: 'name'
+                    azureSubscription: '$(ServiceConnection)'
                     scriptLocation: 'inlineScript'
                     inlineScript: |
                       az storage blob upload-batch \
