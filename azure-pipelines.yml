@@ -97,7 +97,7 @@ stages:
                     inlineScript: |
                       az storage blob delete-batch \
                       --source \$web \
-                      --account-name "azuremealforfamilytestfe"
+                      --account-name "$(StorageAccountNameProd)"
 
                 - task: AzureCLI@1
                   displayName: Upload new files
@@ -107,5 +107,5 @@ stages:
                     inlineScript: |
                       az storage blob upload-batch \
                       --destination \$web \
-                      --account-name "azuremealforfamilytestfe" \
+                      --account-name "$(StorageAccountNameProd)" \
                       --source "$(System.ArtifactsDirectory)"
