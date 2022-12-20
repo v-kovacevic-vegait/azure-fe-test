@@ -42,11 +42,11 @@ stages:
                 valuedev=`cat .env.development`  
                 echo "$valuedev"  
 
-          - script: npm run build:production -- --prod 
+          - script: npm run build:production
             displayName: Npm run build prod
             condition: contains(variables['Build.SourceBranch'], 'refs/heads/master')
           
-          - script: npm run build:development -- --prod 
+          - script: npm run build:development 
             displayName: Npm run build dev
             condition: contains(variables['Build.SourceBranch'], 'refs/heads/dev')
 
