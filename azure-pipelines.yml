@@ -91,7 +91,6 @@ stages:
 
                 - task: AzureCLI@1
                   displayName: Delete files
-                  condition: contains(variables['Build.SourceBranch'], 'refs/heads/dev')
                   inputs:
                     azureSubscription: '$(ServiceConnection)'
                     scriptLocation: 'inlineScript'
