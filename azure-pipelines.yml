@@ -31,7 +31,7 @@ stages:
               targetType: 'inline'
               script: |
                 > .env.production
-                echo "REACT_APP_API_URL = '$(ApiUrlProd)'" >> .env.production
+                echo "REACT_APP_API_URL = '$(ApiUrlDev)'" >> .env.production
                 #!/bin/bash  
                 valueprod=`cat .env.production`  
                 echo "$valueprod"  
@@ -90,6 +90,7 @@ stages:
                   displayName: List files
 
                 - task: AzureCLI@1
+                  condition: contains(variables['Build.SourceBranch'], 'refs/heads/dev')
                   displayName: Delete files
                   inputs:
                     azureSubscription: '$(ServiceConnection)'
