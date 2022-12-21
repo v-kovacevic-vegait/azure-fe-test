@@ -89,7 +89,15 @@ stages:
                     ls
                   displayName: List files
 
-
+                - task: AzureCLI@1
+                  displayName: Delete files
+                  inputs:
+                    azureSubscription: '$(ServiceConnection)'
+                    scriptLocation: 'inlineScript'
+                    inlineScript: |
+                      az storage blob delete-batch \
+                      --source \$web \
+                      --account-name "$(StorageAccountNameProd)"
 
                 - task: AzureCLI@1
                   displayName: Upload new files
