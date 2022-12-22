@@ -37,7 +37,7 @@ stages:
                 echo "$valueprod"  
 
                 > .env.development
-                echo "REACT_APP_API_URL = '$(ApiUrlDev)'" >> .env.development
+                echo "REACT_APP_API_URL = '$(ApiUrlProd)'" >> .env.development
                 #!/bin/bash  
                 valuedev=`cat .env.development`  
                 echo "$valuedev"  
