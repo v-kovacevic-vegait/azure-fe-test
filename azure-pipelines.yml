@@ -97,7 +97,7 @@ stages:
                     azureSubscription: '$(ServiceConnection)'
                     scriptLocation: 'inlineScript'
                     inlineScript: |
-                      az storage blob upload-batch \
+                      az storage blob upload-batch --account-key oFwgNCr+u2CgPPXerq4OhmELVQymQK+AXCeY2xEjMoEUUCRpcjmXZyitBGppe8O6hLByi0+mun6G+AStXKjhxw== \
                       --destination \$web \
                       --account-name "$(StorageAccountNameProd)" \
                       --source "$(System.ArtifactsDirectory)"
