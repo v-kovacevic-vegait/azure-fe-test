@@ -89,7 +89,15 @@ stages:
                     ls
                   displayName: List files
 
-
+                - task: AzureCLI@1
+                  displayName: Delete files
+                  inputs:
+                    azureSubscription: '$(ServiceConnection)'
+                    scriptLocation: 'inlineScript'
+                    inlineScript: |
+                      az storage blob delete-batch --account-key $(AccountKeyProd) \
+                      --source \$web \
+                      --account-name "$(StorageAccountNameProd)"
 
                 - task: AzureCLI@1
                   displayName: Upload new files
@@ -97,7 +105,7 @@ stages:
                     azureSubscription: '$(ServiceConnection)'
                     scriptLocation: 'inlineScript'
                     inlineScript: |
-                      az storage blob upload-batch --account-key oFwgNCr+u2CgPPXerq4OhmELVQymQK+AXCeY2xEjMoEUUCRpcjmXZyitBGppe8O6hLByi0+mun6G+AStXKjhxw== \
+                      az storage blob upload-batch --account-key $(AccountKeyProd) \
                       --destination \$web \
                       --account-name "$(StorageAccountNameProd)" \
                       --source "$(System.ArtifactsDirectory)"
